@@ -56,13 +56,22 @@ exports.capturePayment = async (req, res) => {
   }
 
   try {
-    // Initiate the payment using Razorpay
-    const paymentResponse = await instance.orders.create(options)
-    console.log(paymentResponse)
-    res.json({
-      success: true,
-      data: paymentResponse,
-    })
+
+    // inside capturePayment after creating order
+const paymentResponse = await instance.orders.create(options);
+return res.status(200).json({
+  success: true,
+  data: {
+    id: paymentResponse.id,
+    amount: paymentResponse.amount,
+    currency: paymentResponse.currency
+  },
+  key: process.env.RAZORPAY_KEY   // <<< public key for frontend
+});
+
+
+
+
   } catch (error) {
     console.log(error)
     res
@@ -197,7 +206,6 @@ const enrollStudents = async (courses, userId, res) => {
     }
   }
 }
-
 
 
 
