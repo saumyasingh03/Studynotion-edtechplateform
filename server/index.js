@@ -60,10 +60,11 @@ app.get("/", (req, res) => {
 
 app.get("/test-keys", (req, res) => {
   res.json({
-    RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID ? "Key Loaded" : "Missing",
-    RAZORPAY_SECRET: process.env.RAZORPAY_SECRET ? "Secret Loaded" : "Missing"
+    RAZORPAY_KEY: process.env.RAZORPAY_KEY ? "Loaded" : "Missing",
+    RAZORPAY_SECRET: process.env.RAZORPAY_SECRET ? "Loaded" : "Missing"
   });
 });
+
 
 
 
