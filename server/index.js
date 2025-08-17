@@ -58,16 +58,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/test-keys", (req, res) => {
-  res.json({
-    RAZORPAY_KEY: process.env.RAZORPAY_KEY ? "Loaded" : "Missing",
-    RAZORPAY_SECRET: process.env.RAZORPAY_SECRET ? "Loaded" : "Missing"
-  });
-});
-
-
-
-
 
 
 
