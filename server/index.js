@@ -57,6 +57,19 @@ app.get("/", (req, res) => {
 	});
 });
 
+
+app.get("/test-keys", (req, res) => {
+  res.json({
+    RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID ? "Key Loaded" : "Missing",
+    RAZORPAY_SECRET: process.env.RAZORPAY_SECRET ? "Secret Loaded" : "Missing"
+  });
+});
+
+
+
+
+
+
 // Listening to the server
 app.listen(PORT, () => {
 	console.log(`App is listening at ${PORT}`);
